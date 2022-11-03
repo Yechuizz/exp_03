@@ -19,15 +19,13 @@ public class XmlMenu extends AppCompatActivity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_xml_menu);
-        textView = (TextView) findViewById(R.id.txt);
-        // 为文本框注册上下文菜单
+        textView = findViewById(R.id.txt);
         registerForContextMenu(textView);
         findViewById(R.id.btn3).setOnClickListener(this);
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = new MenuInflater(this);
-        //装填R.Menu.my_menu菜单，并添加到menu中
         inflater.inflate(R.menu.menu_main,menu);
         return super.onCreateOptionsMenu(menu);
     }
@@ -35,10 +33,8 @@ public class XmlMenu extends AppCompatActivity implements View.OnClickListener {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.isCheckable()){
-            //勾选菜单项
             item.setCheckable(true);
         }
-        //switch 判断单击哪个菜单项，并有针对性的做出响应
         switch (item.getItemId()){
             case R.id.font_10:
                 textView.setTextSize(10);
