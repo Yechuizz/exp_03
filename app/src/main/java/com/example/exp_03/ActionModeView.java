@@ -71,7 +71,6 @@ public class ActionModeView extends AppCompatActivity{
                 int count = listview.getCheckedItemCount();
                 //在actionbar的顶部显示选择项的个数
                 mode.setTitle(String.format("%d Selected", count));
-                SparseBooleanArray checkedItems = listview.getCheckedItemPositions();
             }
 
             @Override

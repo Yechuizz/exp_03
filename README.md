@@ -49,3 +49,27 @@
 ![images](https://github.com/Yechuizz/exp_03/blob/main/pictures/exp3-1.png)
 
 ![images](https://github.com/Yechuizz/exp_03/blob/main/pictures/exp3-2.png)
+
+## 4.创建上下文操作模式(ActionMode)的上下文菜单
+
+（1）首先在activity_action_mode.xml里设置一个ListView控件，并新建一个menu_unit.xml文件来规定列表项布局，在menu文件夹下创建一个action_mode_menu.xml菜单，包含两个item控件，关键代码如下
+
+![images](https://github.com/Yechuizz/exp_03/blob/main/pictures/code9.png)
+
+（2）在drawable文件夹下新建一个selector.xml文件，设置属性为item android:state_activated="true" android:drawable="@color/blue"，当列表项被点击时，该列表项的背景色变为蓝色
+
+（2）使用和案例1一样的步骤设置列表项内容并为listview设置适配器simpleAdapter，采用CHOICE_MODE_MULTIPLE_MODAL模式，在OnItemCheckedStateChanged方法下获取列表项的个数并在actionbar顶部显示选择项的个数，关键代码如下
+
+![images](https://github.com/Yechuizz/exp_03/blob/main/pictures/code10.png)
+
+（3）在onCreateActionMode方法下装填上下文菜单R.menu.action_mode_menu
+
+（4）在onActionItemClicked为菜单item设置点击触发事件，当点击删除item时，判断列表项是否被选中，将被选中的列表项保存到del列表中，用list.removeAll(del)来删除被选中的列表项；当点击确定item时，退出该操作模式，关键代码如下
+
+![images](https://github.com/Yechuizz/exp_03/blob/main/pictures/code11.png)
+
+（5）最终效果图如下
+
+![images](https://github.com/Yechuizz/exp_03/blob/main/pictures/exp4-1.png)
+
+![images](https://github.com/Yechuizz/exp_03/blob/main/pictures/exp4-2.png)
